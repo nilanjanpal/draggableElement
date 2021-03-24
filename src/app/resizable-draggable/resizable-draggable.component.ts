@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit, HostListener } from '@angular/core';
+import { UtilService } from '../services/util.service';
 
 const enum Status {
   OFF = 0,
@@ -16,14 +17,19 @@ export class ResizableDraggableComponent implements OnInit, AfterViewInit {
   @Input('height') public height: number;
   @Input('left') public left: number;
   @Input('top') public top: number;
+  @Input() public imagePath: string;
   @ViewChild("box") public box: ElementRef;
   private boxPosition: { left: number, top: number };
   private containerPos: { left: number, top: number, right: number, bottom: number };
   public mouse: {x: number, y: number}
   public status: Status = Status.OFF;
   private mouseClick: {x: number, y: number, left: number, top: number}
+  
 
-  ngOnInit() {}
+  constructor(private utilService: UtilService) {}
+
+  ngOnInit() {
+  }
 
   ngAfterViewInit(){
     this.loadBox();

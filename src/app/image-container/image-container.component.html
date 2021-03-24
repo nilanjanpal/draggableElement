@@ -1,0 +1,7 @@
+<div class="box-container">
+  <span>600px</span>
+  <span>450px</span>
+  <div *ngFor="let image of images">
+    <app-resizable-draggable [width]="300" [height]="150" [left]="100" [top]="100" [imagePath]="image"></app-resizable-draggable>
+  </div>
+</div>
